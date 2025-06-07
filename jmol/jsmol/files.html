@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fully Working JSmol</title>
+<meta charset="utf-8">
+
+<script type="text/javascript" src="jquery/jquery.min.js"></script>
+<script type="text/javascript" src="JSmol.lite.nojq.js"></script>
+
+<script type="text/javascript">
+
+var Info = {
+  width: 500,
+  height: 500,
+  color: "0xC0C0C0",
+  use: "HTML5",
+  j2sPath: "j2s",
+  defaultModel: "data/eq.out.noH.xyz",
+  spin: true
+};
+
+$(document).ready(function() {
+  var jmol1 = Jmol.getTMApplet("jmol1", Info);
+  $("#apphere1").html(jmol1._code);
+});
+</script>
+
+</head>
+<body>
+
+<h3>3D Molecule View</h3>
+<div id="apphere1"></div>
+
+</body>
+</html>
+

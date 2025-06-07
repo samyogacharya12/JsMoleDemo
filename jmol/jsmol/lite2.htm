@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Super-Lightweight Jmol Testing</title>
+<meta charset="utf-8">
+<script type="text/javascript" src="jquery/jquery.min.js"></script>
+<script type="text/javascript" src="JSmol.lite.nojq.js"></script>
+
+<script type="text/javascript"> 
+
+var Info, Chromatin;
+
+;(function() {
+
+Info = {
+	width: 500,
+	height: 500,
+	debug: false,
+	color: "0xC0C0C0",
+	addSelectionOptions: true,
+	serverURL: "https://chemapps.stolaf.edu/jmol/jsmol/php/jsmol.php",
+	use: "HTML5",
+	readyFunction: null,
+	defaultModel: ":dopamine",
+	bondWidth: 4,
+	zoomScaling: 1.5,
+	pinchScaling: 2.0,
+	mouseDragFactor: 0.5,
+	touchDragFactor: 0.15,
+	multipleBondSpacing: 4,
+	spinRateX: 0.2,
+	spinRateY: 0.5,
+	spinFPS: 20,
+	spin:true
+}
+
+Chromatin = {
+	width: 500,
+	height: 500,
+	debug: false,
+	color: "0xC0C0C0",
+	addSelectionOptions: true,
+	serverURL: "https://chemapps.stolaf.edu/jmol/jsmol/php/jsmol.php",
+	use: "HTML5",
+	readyFunction: null,
+	defaultModel: ":aspirin",
+	bondWidth: 4,
+	zoomScaling: 1.5,
+	pinchScaling: 2.0,
+	mouseDragFactor: 0.5,
+	touchDragFactor: 0.15,
+	multipleBondSpacing: 4,
+	spinRateX: 0.2,
+	spinRateY: 0.5,
+	spinFPS: 20,
+	spin:true
+}
+
+})();
+
+$(window).ready(function() {
+  Jmol._document = null;
+
+  var jmol1 = Jmol.getTMApplet("jmol1", Info);
+  $("#apphere1").html(jmol1._code);
+  $("#spinstuff1").html('<a href="javascript:jmol1.spin(true)">spin ON</a> <a href="javascript:jmol1.spin(false)">spin OFF</a>');  
+  
+  var jmol2 = Jmol.getTMApplet("jmol2", Chromatin);
+  $("#apphere2").html(jmol2._code);
+  $("#spinstuff2").html('<a href="javascript:jmol2.spin(true)">spin ON</a> <a href="javascript:jmol2.spin(false)">spin OFF</a>');  
+});
+</script>
+
+</head>
+<body>
+
+<div id="spinstuff1"></div>
+<br>
+<div id="apphere1"></div>
+
+<hr>
+
+<div id="spinstuff2"></div>
+<br>
+<div id="apphere2"></div>
+
+</body>
+</html>
+
